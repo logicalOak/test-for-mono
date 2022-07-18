@@ -1,0 +1,128 @@
+.header {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	padding-top: 10px;
+	padding-bottom: 15px;
+
+	//media
+	@include mq(md) {
+		padding-top: 18px;
+		padding-bottom: 18px;
+	}
+
+	&__hamburger {
+		margin-right: auto;
+		padding-right: 28px;
+		//media
+		@include mq(md) {
+			margin-right: 48px;
+			padding-right: 0;
+		}
+	}
+
+	&-menu {
+		display: none;
+		//media
+		@include mq(md) {
+			margin-right: auto;
+			display: flex;
+			gap: 30px;
+		}
+
+		&__item {
+			&:last-child {
+				//media
+				@include mq(md) {
+					display: none;
+				}
+
+				//media
+				@include mq(xl) {
+					display: block;
+				}
+			}
+		}
+
+		&__link {
+			font-size: 14px;
+		}
+	}
+
+	&-logo {
+	}
+
+	&-info {
+		display: flex;
+		align-items: center;
+		margin-left: auto;
+		&__contacts {
+			display: none;
+
+			//media
+			@include mq(md) {
+				display: block;
+				margin-left: 48px;
+				min-width: 132px;
+			}
+
+			//media
+			@include mq(xl) {
+				margin-left: 58px;
+			}
+
+			p:first-child {
+				font-size: 15px;
+				font-weight: 500;
+			}
+
+			p:last-child {
+				color: #797986;
+				font-size: 13px;
+			}
+		}
+
+		&__buttons {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			min-width: 51px;
+		}
+	}
+
+	&__btn {
+		display: none;
+
+		//media
+		@include mq(xl) {
+			display: block;
+			margin-left: 59px;
+		}
+	}
+}
+
+.logo-mobile {
+	//media
+	@include mq(md) {
+		display: none;
+	}
+
+	//media
+	@include mq(xl) {
+		display: block;
+	}
+}
+
+.logo-tab {
+	display: none;
+	//media
+	@include mq(md) {
+		display: block;
+	}
+
+	//media
+	@include mq(xl) {
+		display: none;
+	}
+}

@@ -1,0 +1,213 @@
+@import '../variables';
+
+.footer {
+	&-wrapper {
+		display: grid;
+		//media
+		@include mq(md) {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+	&__row {
+		padding: 40px 15px;
+		background-color: #222225;
+
+		//media
+		@include mq(xl) {
+			padding-top: 60px;
+		}
+		.products {
+			margin-bottom: 15px;
+			a {
+				font-family: 'Inter', san-serif;
+				font-size: 20px;
+				font-weight: 400;
+				line-height: 34px;
+				color: #fff;
+				transition: color $duration ease-in-out;
+			}
+
+			a:hover,
+			a:focus {
+				color: #f23147;
+			}
+		}
+
+		.menu {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 20px;
+			max-width: 284px;
+			width: 100%;
+			a {
+				font-family: 'Akzidenz-Grotesk Pro';
+				font-weight: 400;
+				font-size: 16px;
+				line-height: 29px;
+				color: #797986;
+				transition: color $duration ease-in-out;
+			}
+
+			a:hover,
+			a:focus {
+				color: #fff;
+			}
+		}
+	}
+
+	&-info {
+		display: grid;
+		justify-content: start;
+		//media
+		@include mq(xl) {
+			grid-template-columns: 270px 190px;
+			gap: 60px;
+			margin-bottom: 20px;
+		}
+		&__numbers {
+			display: grid;
+			margin-bottom: 20px;
+
+			//media
+			@include mq(xl) {
+				margin-bottom: 0;
+			}
+			a {
+				font-family: 'Golos';
+				font-style: normal;
+				font-weight: 500;
+				font-size: 23px;
+				line-height: 34px;
+				color: #fff;
+			}
+		}
+	}
+
+	&__btn {
+		border: 2px solid #404040;
+		background-color: transparent;
+		margin-bottom: 15px;
+
+		//media
+		@include mq(xl) {
+			margin-bottom: auto;
+		}
+	}
+
+	&__mail {
+		color: #f23147;
+		font-size: 19px;
+		line-height: 20px;
+		font-family: 'Akzidenz-Grotesk Pro';
+		font-weight: 500;
+		margin-bottom: 33px;
+	}
+
+	&__address {
+		color: #fff;
+		font-family: 'Inter';
+		max-width: 290px;
+		width: 100%;
+	}
+
+	&-bottom {
+		position: relative;
+		padding-top: 20px;
+		padding-left: 15px;
+		padding-right: 15px;
+		padding-bottom: 30px;
+		display: grid;
+		gap: 10px;
+		background-color: #2a2a2e;
+		color: #797986;
+		font-size: 13px;
+		line-height: 14px;
+		font-family: 'Akzidenz-Grotesk Pro';
+
+		//media
+		@include mq(xl) {
+			padding-left: 0;
+		}
+
+		&::before {
+			position: absolute;
+			content: '';
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 2px;
+			background-color: #fff;
+			opacity: 0.05;
+		}
+
+		//media
+		@include mq(md) {
+			grid-template-columns: repeat(2, 1fr);
+			gap: 0;
+		}
+
+		&__copyright {
+			//media
+			@include mq(md) {
+				padding-left: 30px;
+				padding-right: 30px;
+			}
+
+			//media
+			@include mq(xl) {
+				padding-left: 314px;
+			}
+		}
+		&__dev {
+			//media
+			@include mq(md) {
+				padding-left: 40px;
+				padding-right: 40px;
+			}
+
+			//media
+			@include mq(xl) {
+				padding-left: 127px;
+			}
+
+			a {
+				color: #fff;
+				transition: color $duration ease-in-out;
+				font-size: 13px;
+			}
+			a:hover,
+			a:focus {
+				color: #f23147;
+			}
+		}
+	}
+
+	.row-top {
+		//media
+		@include mq(md) {
+			padding-left: 30px;
+			padding-right: 30px;
+		}
+
+		//media
+		@include mq(xl) {
+			padding-left: 314px;
+		}
+	}
+	.row-middle {
+		background-color: #2a2a2e;
+		// display: flex;
+		// flex-direction: column;
+
+		//media
+		@include mq(md) {
+			padding-left: 40px;
+			padding-right: 40px;
+		}
+
+		//media
+		@include mq(xl) {
+			padding-left: 127px;
+		}
+	}
+}

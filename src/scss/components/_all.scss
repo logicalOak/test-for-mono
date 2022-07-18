@@ -1,0 +1,64 @@
+@import './header';
+@import './contacts';
+@import './address';
+@import './footer';
+
+.container {
+	padding-left: 15px;
+	padding-right: 15px;
+
+	//media
+	@include mq(md) {
+		padding-left: 30px;
+		padding-right: 30px;
+	}
+
+	//media
+	@include mq(xl) {
+		max-width: 1320px;
+		width: 100%;
+		padding-left: 15px;
+		padding-right: 15px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+.btn {
+	max-width: 190px;
+	width: 100%;
+	border-radius: 14px;
+	padding: 19px;
+	font-weight: 400;
+	text-align: center;
+	font-family: 'RoadRadio';
+	color: #fff;
+	font-size: 14px;
+	line-height: 14px;
+	position: relative;
+	top: 0;
+	transition: all 0.3s ease 0s;
+
+	&:hover {
+		opacity: 0.9;
+	}
+
+	&:active {
+		top: 3px;
+	}
+}
+
+.btn--red {
+	background: #bf2738;
+}
+
+.visually-hidden {
+	position: absolute;
+	z-index: -1;
+	width: 0;
+	height: 0;
+	padding: 0;
+	margin: 0;
+	border: none;
+	overflow: hidden;
+}
