@@ -47,6 +47,10 @@
 
 		&__link {
 			font-size: 14px;
+			//media
+			@include mq(xl) {
+				font-size: 15px;
+			}
 		}
 	}
 
