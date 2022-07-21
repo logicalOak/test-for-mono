@@ -88,6 +88,15 @@
 		background-color: transparent;
 		margin-bottom: 15px;
 
+		&:hover,
+		&:focus {
+			border-color: #fff;
+		}
+
+		&:active {
+			background: #222225;
+		}
+
 		//media
 		@include mq(xl) {
 			margin-bottom: auto;
@@ -95,12 +104,19 @@
 	}
 
 	&__mail {
+		display: block;
 		color: #f23147;
 		font-size: 19px;
 		line-height: 20px;
 		font-family: 'Akzidenz-Grotesk Pro';
 		font-weight: 500;
 		margin-bottom: 33px;
+
+		//media
+		@include mq(xl) {
+			font-weight: 400;
+			font-size: 24px;
+		}
 	}
 
 	&__address {
@@ -108,6 +124,11 @@
 		font-family: 'Inter';
 		max-width: 290px;
 		width: 100%;
+		//media
+		@include mq(xl) {
+			max-width: 447px;
+			margin-top: 97px;
+		}
 	}
 
 	&-bottom {
@@ -127,6 +148,7 @@
 		//media
 		@include mq(xl) {
 			padding-left: 0;
+			padding-right: 0;
 		}
 
 		&::before {
@@ -155,7 +177,14 @@
 
 			//media
 			@include mq(xl) {
-				padding-left: 314px;
+				// padding-left: 314px;
+				@include fluid(
+					'padding-left',
+					(
+						1200px: 40px,
+						1920px: 314px,
+					)
+				);
 			}
 		}
 		&__dev {
@@ -167,7 +196,14 @@
 
 			//media
 			@include mq(xl) {
-				padding-left: 127px;
+				// padding-left: 127px;
+				@include fluid(
+					'padding-left',
+					(
+						1200px: 40px,
+						1920px: 127px,
+					)
+				);
 			}
 
 			a {
@@ -192,12 +228,17 @@
 		//media
 		@include mq(xl) {
 			padding-left: 314px;
+			@include fluid(
+				'padding-left',
+				(
+					1200px: 30px,
+					1920px: 314px,
+				)
+			);
 		}
 	}
 	.row-middle {
 		background-color: #2a2a2e;
-		// display: flex;
-		// flex-direction: column;
 
 		//media
 		@include mq(md) {
@@ -207,7 +248,14 @@
 
 		//media
 		@include mq(xl) {
-			padding-left: 127px;
+			// padding-left: 127px;
+			@include fluid(
+				'padding-left',
+				(
+					1200px: 40px,
+					1920px: 127px,
+				)
+			);
 		}
 	}
 }

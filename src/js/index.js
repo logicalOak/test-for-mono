@@ -90,11 +90,14 @@ document.addEventListener('DOMContentLoaded', function () {
 		const username = nameInput.value.trim();
 
 		if (!isRequired(username)) {
-			showError(nameInput, 'Введите имя.');
+			showError(nameInput, 'Является обязательным полем');
+			showInputError(nameInput);
 		} else if (!isBetween(username.length, min, max)) {
 			showError(nameInput, `Имя должно содержать от ${min} до ${max} символов.`);
+			showInputError(nameInput);
 		} else {
 			showSuccess(nameInput);
+			removeInputError(nameInput);
 			valid = true;
 		}
 		return valid;
@@ -105,10 +108,13 @@ document.addEventListener('DOMContentLoaded', function () {
 		const phone = phoneInput.value.trim();
 		if (!isRequired(phone)) {
 			showError(phoneInput, 'Введите номер телефона.');
+			showInputError(phoneInput);
 		} else if (!isPhoneValid(phone)) {
 			showError(phoneInput, 'Введите правильный номер.');
+			showInputError(phoneInput);
 		} else {
 			showSuccess(phoneInput);
+			removeInputError(phoneInput);
 			valid = true;
 		}
 		return valid;
@@ -159,9 +165,31 @@ document.addEventListener('DOMContentLoaded', function () {
 		error.textContent = '';
 	};
 
+	const showInputError = (input) => {
+		input.classList.add('input-error');
+	};
+	const removeInputError = (input) => {
+		input.classList.remove('input-error');
+	};
+
+	const sendForm = async (formData) => {
+		const url = '/path/to/server';
+		const response = await fetch(url, {
+			method: 'POST',
+			body: formData,
+		});
+		console.log(response);
+		if (!response.ok) {
+			throw new Error(`Ошибка по адресу ${url}, статус ошибки ${response.status}`);
+		}
+		return await response.text();
+	};
+
 	form.addEventListener('submit', function (e) {
 		// prevent the form from submitting
 		e.preventDefault();
+		// create formData
+		const formData = new FormData(form);
 
 		// validate fields
 		let isUsernameValid = checkUsername(),
@@ -172,8 +200,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
 		// submit to the server if the form is valid
 		if (isFormValid) {
-			alert('Данные отправлены');
-			form.reset();
+			sendForm(formData)
+				.then((response) => {
+					console.log(response);
+					form.reset();
+				})
+				.catch((err) => {
+					console.error(err);
+					alert('Что-то пошло не так, попробуйте еще раз');
+					form.reset();
+				});
 		}
 	});
 
@@ -191,17 +227,18 @@ document.addEventListener('DOMContentLoaded', function () {
 		};
 	};
 
-	form.addEventListener(
+	// listeners
+	nameInput.addEventListener(
 		'input',
 		debounce(function (e) {
-			switch (e.target.id) {
-				case 'username':
-					checkUsername();
-					break;
-				case 'phone':
-					checkUserPhone();
-					break;
-			}
+			checkUsername();
+		}),
+	);
+
+	phoneInput.addEventListener(
+		'input',
+		debounce(function (e) {
+			checkUserPhone();
 		}),
 	);
 });

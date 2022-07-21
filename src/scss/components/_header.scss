@@ -73,12 +73,15 @@
 				margin-left: 58px;
 			}
 
-			p:first-child {
+			a {
+				display: block;
+			}
+			a:first-child {
 				font-size: 15px;
 				font-weight: 500;
 			}
 
-			p:last-child {
+			a:last-child {
 				color: #797986;
 				font-size: 13px;
 			}

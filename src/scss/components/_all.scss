@@ -39,18 +39,18 @@
 	position: relative;
 	top: 0;
 	transition: all 0.3s ease 0s;
-
-	&:hover {
-		opacity: 0.9;
-	}
-
-	&:active {
-		top: 3px;
-	}
 }
 
 .btn--red {
 	background: #bf2738;
+	&:hover,
+	&:focus {
+		background: #cc2a3c;
+	}
+
+	&:active {
+		background: #991f2d;
+	}
 }
 
 .visually-hidden {

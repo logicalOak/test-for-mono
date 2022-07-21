@@ -13,6 +13,8 @@
 		@include mq(md) {
 			grid-template-columns: repeat(2, 1fr);
 			grid-column-gap: 10px;
+			padding-top: 60px;
+			padding-bottom: 80px;
 		}
 
 		//media
@@ -23,10 +25,14 @@
 			max-width: 100%;
 			margin-left: auto;
 			margin-right: auto;
+			padding-top: 80px;
+			padding-bottom: 100px;
 		}
 	}
 
 	&__item {
+		display: flex;
+		flex-direction: column;
 		max-width: 350px;
 		width: 100%;
 		margin-left: auto;
@@ -62,6 +68,10 @@
 				grid-column: 3 / 5;
 			}
 		}
+
+		a {
+			display: block;
+		}
 	}
 
 	&__title {
@@ -85,5 +95,9 @@
 	&__dir {
 		color: #bf2738;
 		margin-bottom: 20px;
+	}
+
+	&__time {
+		margin-top: auto;
 	}
 }
