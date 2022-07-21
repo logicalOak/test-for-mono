@@ -173,7 +173,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	};
 
 	const sendForm = async (formData) => {
-		const url = '/path/to/server';
+		const url = '/path/to/server/';
 		const response = await fetch(url, {
 			method: 'POST',
 			body: formData,
@@ -189,7 +189,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		// prevent the form from submitting
 		e.preventDefault();
 		// create formData
-		const formData = new FormData(form);
+		const formData = new FormData(this);
 
 		// validate fields
 		let isUsernameValid = checkUsername(),
